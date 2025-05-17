@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGsystem.Dents.Application", "src\NGsystem.Dents.Application\NGsystem.Dents.Application.csproj", "{C834A5D9-0FC6-4BE2-8E71-E25D367D5081}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGsystem.Dents.Domain", "src\NGsystem.Dents.Domain\NGsystem.Dents.Domain.csproj", "{0DFE55D0-323A-4FF6-B14E-715CB1B2CE47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGsystem.Dents.Infrastructure", "src\NGsystem.Dents.Infrastructure\NGsystem.Dents.Infrastructure.csproj", "{CCEB7D2B-E8EC-4A4C-94AB-64DE6D644DE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGsystem.Dents.Api", "src\NGsystem.Dents.Api\NGsystem.Dents.Api.csproj", "{98461D7E-4546-451A-BA27-014BD578F72D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGsystem.Dents.Core", "src\NGsystem.Dents.Core\NGsystem.Dents.Core.csproj", "{6559D3B2-7760-461A-AB18-ECF5EE933333}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C834A5D9-0FC6-4BE2-8E71-E25D367D5081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C834A5D9-0FC6-4BE2-8E71-E25D367D5081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C834A5D9-0FC6-4BE2-8E71-E25D367D5081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C834A5D9-0FC6-4BE2-8E71-E25D367D5081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DFE55D0-323A-4FF6-B14E-715CB1B2CE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFE55D0-323A-4FF6-B14E-715CB1B2CE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFE55D0-323A-4FF6-B14E-715CB1B2CE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFE55D0-323A-4FF6-B14E-715CB1B2CE47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCEB7D2B-E8EC-4A4C-94AB-64DE6D644DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCEB7D2B-E8EC-4A4C-94AB-64DE6D644DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCEB7D2B-E8EC-4A4C-94AB-64DE6D644DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCEB7D2B-E8EC-4A4C-94AB-64DE6D644DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98461D7E-4546-451A-BA27-014BD578F72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98461D7E-4546-451A-BA27-014BD578F72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98461D7E-4546-451A-BA27-014BD578F72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98461D7E-4546-451A-BA27-014BD578F72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6559D3B2-7760-461A-AB18-ECF5EE933333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6559D3B2-7760-461A-AB18-ECF5EE933333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6559D3B2-7760-461A-AB18-ECF5EE933333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6559D3B2-7760-461A-AB18-ECF5EE933333}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56E35459-769F-40D7-850A-F1FBEAECC713}
+	EndGlobalSection
+EndGlobal
