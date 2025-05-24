@@ -24,8 +24,8 @@ public class PacienteRepository : IPacienteRepository, IPacienteReadService
                paciente.Nombre,
                paciente.Apellido,
                paciente.FechaNacimiento.ToString(),
-               paciente.Telefono,
                paciente.Genero,
+               paciente.Telefono,
                paciente.Direccion,
                paciente.Dni)
                ).ToListAsync();
@@ -38,25 +38,7 @@ public class PacienteRepository : IPacienteRepository, IPacienteReadService
             .Where(p => p.Dni == dni)
             .FirstOrDefaultAsync();
     }
-    public async Task<IEnumerable<PacienteResponseDto>> CreatePacienteDtoAsync(string dni)
-    {
-        var query = _context.Paciente
-                        .AsNoTracking()
-                        .AsQueryable();
-        query = query.Where(c => c.Dni.Equals(dni));
-
-        return await query.Select(paciente => new PacienteResponseDto(
-                paciente.Id,
-                paciente.Nombre,
-                paciente.Apellido,
-                paciente.FechaNacimiento.ToString(),
-                paciente.Telefono,
-                paciente.Genero,
-                paciente.Direccion,
-                paciente.Dni)
-                ).ToListAsync();
-
-    }
+   
     public void SavePaciente(Paciente paciente)
     {
         _context.Paciente.Add(paciente);        
