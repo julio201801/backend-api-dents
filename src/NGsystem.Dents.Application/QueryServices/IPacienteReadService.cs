@@ -2,7 +2,7 @@
 
 namespace NGsystem.Dents.Application.QueryServices;
 
-public interface IPacienteService
+public interface IPacienteReadService
 {
     Task<IEnumerable<LisPacienteResponseDto>> ListPacienteDtoAsync();
     Task<Paciente> GetPacienteDtoAsync(string dni);

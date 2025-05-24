@@ -14,7 +14,7 @@ public static class DependencyInjection
                  configuration.GetConnectionString("DefaultConnection")
                  ).LogTo(Console.WriteLine, LogLevel.Information)
              );
-        services.AddScoped<IPacienteService, PacienteRepository>();
+        services.AddScoped<IPacienteReadService, PacienteRepository>();
         services.AddScoped<IPacienteRepository, PacienteRepository>();
         
         return services;

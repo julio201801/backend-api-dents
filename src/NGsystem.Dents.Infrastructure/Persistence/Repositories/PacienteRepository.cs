@@ -5,7 +5,7 @@ using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 using NGsystem.Dents.Domain.Common;
 
 namespace NGsystem.Dents.Infrastructure.Persistence.Repositories;
-public class PacienteRepository : IPacienteRepository, IPacienteService
+public class PacienteRepository : IPacienteRepository, IPacienteReadService
 {
     private readonly DentalContext _context;
     public IUnitOfWork UnitOfWork => _context;
@@ -29,30 +29,14 @@ public class PacienteRepository : IPacienteRepository, IPacienteService
                paciente.Direccion,
                paciente.Dni)
                ).ToListAsync();
-         
     }
     
     public async Task<Paciente?> GetPacienteDtoAsync(string dni)
     {
-        //return await _context.Paciente
-        //    .AsNoTracking()
-        //    .Where(c => c.Dni == dni)
-        //    .Select(paciente => new PacienteResponseDto(
-        //        paciente.Id,
-        //        paciente.Nombre,
-        //        paciente.Apellido,
-        //        paciente.FechaNacimiento.ToShortDateString(),
-        //        paciente.Genero,
-        //        paciente.Telefono,          
-        //        paciente.Direccion,
-        //        paciente.Dni
-        //    ))
-        //    .FirstOrDefaultAsync(); 
         return await _context.Paciente
             .AsNoTracking()
             .Where(p => p.Dni == dni)
             .FirstOrDefaultAsync();
-
     }
     public async Task<IEnumerable<PacienteResponseDto>> CreatePacienteDtoAsync(string dni)
     {
@@ -75,14 +59,12 @@ public class PacienteRepository : IPacienteRepository, IPacienteService
     }
     public void SavePaciente(Paciente paciente)
     {
-        if (_context.Entry(paciente).State == EntityState.Detached)
-        {
-            _context.Paciente.Add(paciente);
-        }
-        else
-        {
-            _context.Paciente.Update(paciente);
-        }
+        _context.Paciente.Add(paciente);        
+    }
+    public void UpdatePaciente(Paciente paciente)
+    {
+        _context.Paciente.Update(paciente);
+        
     }
 }
 

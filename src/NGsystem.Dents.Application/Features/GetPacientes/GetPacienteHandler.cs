@@ -11,9 +11,9 @@ public class GetPacienteHandler
 {
     private readonly IValidator<PacienteRequestDto> _validator;
     private readonly IPacienteRepository _pacienteRepository;
-    private readonly IPacienteService _pacienteService;
+    private readonly IPacienteReadService _pacienteService;
 
-    public GetPacienteHandler(IValidator<PacienteRequestDto> validator, IPacienteRepository pacienteRepository, IPacienteService pacienteService)
+    public GetPacienteHandler(IValidator<PacienteRequestDto> validator, IPacienteRepository pacienteRepository, IPacienteReadService pacienteService)
     {
         _validator = validator;
         _pacienteRepository = pacienteRepository;

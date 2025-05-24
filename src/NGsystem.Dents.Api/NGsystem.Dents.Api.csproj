@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NGsystem.Dents.Application\NGsystem.Dents.Application.csproj" />
-    <ProjectReference Include="..\NGsystem.Dents.Extensions.Web\NGsystem.Dents.Extensions.Web.csproj" />
     <ProjectReference Include="..\NGsystem.Dents.Infrastructure\NGsystem.Dents.Infrastructure.csproj" />
   </ItemGroup>
 

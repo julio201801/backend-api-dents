@@ -9,8 +9,8 @@ namespace NGsystem.Dents.Application.Features.ListPacientes;
 
 public class ListPacienteHandler
 {
-    private readonly IPacienteService _pacienteService;
-    public ListPacienteHandler( IPacienteService pacienteService)
+    private readonly IPacienteReadService _pacienteService;
+    public ListPacienteHandler( IPacienteReadService pacienteService)
     {
         _pacienteService = pacienteService;
     }

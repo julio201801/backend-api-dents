@@ -16,7 +16,7 @@ public static class PacienteEndpoint
         api.MapGet("/ListaPaciente", ListPacienteEndpointAsync);
         api.MapGet("/ObtenerPaciente", GetPacienteEndpointAsync);
         api.MapPost("/GrabarPaciente", CreatePacienteEndpointAsync);
-        api.MapPut("/UpdatePaciente", CreatePacienteEndpointAsync);
+        api.MapPut("/UpdatePaciente", UpdatePacienteEndpointAsync);
         return api;
     }
 
