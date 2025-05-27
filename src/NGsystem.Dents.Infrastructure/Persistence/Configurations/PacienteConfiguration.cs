@@ -44,10 +44,16 @@ public class PacienteConfiguration : IEntityTypeConfiguration<Paciente>
                .IsRequired()
                .UsePropertyAccessMode(PropertyAccessMode.Field)
                .HasColumnName("direccion");
+
         builder.Property(e => e.Dni)
               .IsRequired()
               .UsePropertyAccessMode(PropertyAccessMode.Field)
               .HasColumnName("dni");
+
+        builder.Property(e => e.Activo)
+             .IsRequired()
+             .UsePropertyAccessMode(PropertyAccessMode.Field)
+             .HasColumnName("activo");
 
     }
 

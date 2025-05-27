@@ -12,6 +12,7 @@ public class Paciente :Entity<int>, IAggregateRoot
     public string ?Telefono { get;private set; }
     public string ?Direccion { get;private set; }
     public string? Dni { get; private set; }
+    public bool? Activo { get; private set; }
     public Paciente() { }
     // Constructor privado para garantizar uso de métodos de fábrica
     private Paciente(string nombre, string apellido, string fechaNacimiento, string genero, string telefono, string direccion, string dni)
@@ -40,6 +41,10 @@ public class Paciente :Entity<int>, IAggregateRoot
         Telefono = telefono;
         Direccion = direccion;
         Dni = dni;
+    }
+    public void ReplaceActivo(bool activo)
+    { 
+        Activo=activo;
     }
 
 }

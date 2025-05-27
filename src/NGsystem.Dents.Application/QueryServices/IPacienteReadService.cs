@@ -6,4 +6,5 @@ public interface IPacienteReadService
 {
     Task<IEnumerable<LisPacienteResponseDto>> ListPacienteDtoAsync();
     Task<Paciente> GetPacienteDtoAsync(string dni);
+    Task<Paciente> GetIdPacienteDtoAsync(int id);
 }

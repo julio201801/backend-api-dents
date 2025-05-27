@@ -38,7 +38,13 @@ public class PacienteRepository : IPacienteRepository, IPacienteReadService
             .Where(p => p.Dni == dni)
             .FirstOrDefaultAsync();
     }
-   
+    public async Task<Paciente?> GetIdPacienteDtoAsync(int id)
+    {
+        return await _context.Paciente
+            .AsNoTracking()
+            .Where(p => p.Id == id)
+            .FirstOrDefaultAsync();
+    }
     public void SavePaciente(Paciente paciente)
     {
         _context.Paciente.Add(paciente);        

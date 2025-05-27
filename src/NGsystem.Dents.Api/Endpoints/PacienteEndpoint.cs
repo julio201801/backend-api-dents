@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NGsystem.Dents.Application.Features.CreatePaciente;
+using NGsystem.Dents.Application.Features.DeletePaciente;
 using NGsystem.Dents.Application.Features.ListPacientes;
 using NGsystem.Dents.Application.Features.UpdatePacientes;
 using NGsystem.Dents.Domain.Common;
@@ -17,6 +18,7 @@ public static class PacienteEndpoint
         api.MapGet("/ObtenerPaciente", GetPacienteEndpointAsync);
         api.MapPost("/GrabarPaciente", CreatePacienteEndpointAsync);
         api.MapPut("/UpdatePaciente", UpdatePacienteEndpointAsync);
+        api.MapDelete("/DeletePaciente", DeletePacienteEndpointAsync);
         return api;
     }
 
@@ -58,6 +60,17 @@ public static class PacienteEndpoint
         var resultPaciente = await updatePacienteHandler.Handle(request);
         return resultPaciente.MatchApiException(
             onSuccess: (data) => TypedResults.Ok(new ResponseDto<PacienteUpdateResponseDTO>
+            {
+                Status = true,
+                registro = data
+            }),
+            onFailure: (apiException) => throw apiException);
+    }
+    private static async Task<IResult> DeletePacienteEndpointAsync(DeletePacienteHandler deletePacienteHandler, [FromBody] PacienteDeleteRequestDto request)
+    {
+        var resultPaciente = await deletePacienteHandler.Handle(request);
+        return resultPaciente.MatchApiException(
+            onSuccess: (data) => TypedResults.Ok(new ResponseDto<PacienteDeleteResponseDTO>
             {
                 Status = true,
                 registro = data
