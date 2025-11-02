@@ -1,4 +1,4 @@
-﻿namespace NGsystem.Dents.Application.Features.UpdatePacientes;
+﻿namespace NGsystem.Dents.Application.Features.Pacientes.UpdatePacientes;
 
 public record PacienteUpdateRequestDto(
      int? id,

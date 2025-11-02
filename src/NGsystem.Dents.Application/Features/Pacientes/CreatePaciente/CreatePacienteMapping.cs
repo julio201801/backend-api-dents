@@ -1,6 +1,6 @@
 ﻿using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.CreatePaciente;
+namespace NGsystem.Dents.Application.Features.Pacientes.CreatePaciente;
 public static class CreatePacienteMapping
 {
     public static Paciente MapToPaciente(this PacienteCreateRequestDto request)

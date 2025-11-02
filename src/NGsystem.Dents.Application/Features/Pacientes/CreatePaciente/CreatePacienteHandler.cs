@@ -4,7 +4,7 @@ using NGsystem.Dents.Application.QueryServices;
 using NGsystem.Dents.Core;
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.CreatePaciente;
+namespace NGsystem.Dents.Application.Features.Pacientes.CreatePaciente;
 
 public class CreatePacienteHandler
 {
@@ -22,12 +22,12 @@ public class CreatePacienteHandler
         if (!validationResult.IsValid)
         {
             var validationErrors = validationResult.Errors.Select(codeItem => new CustomError(string.Empty, codeItem.ErrorMessage, "Validacion")).ToList();
-            return Result<PacienteCreateResponseDTO>.Failure(null,validationErrors);
+            return Result<PacienteCreateResponseDTO>.Failure(null, validationErrors);
         }
 
         var paciente = request.MapToPaciente();
-        this._pacienteRepository.SavePaciente(paciente);
-        await this._pacienteRepository.UnitOfWork.SaveAsync();
+        _pacienteRepository.SavePaciente(paciente);
+        await _pacienteRepository.UnitOfWork.SaveAsync();
         var response = paciente.MapToPacienteResponse();
         return Result<PacienteCreateResponseDTO>.Success(response);
     }

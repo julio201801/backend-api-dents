@@ -1,7 +1,7 @@
 ﻿
 using FluentValidation;
 
-namespace NGsystem.Dents.Application.Features.DeletePaciente;
+namespace NGsystem.Dents.Application.Features.Pacientes.DeletePaciente;
 
 public class DeletePacienteValidation : AbstractValidator<PacienteDeleteRequestDto>
 {
@@ -9,6 +9,6 @@ public class DeletePacienteValidation : AbstractValidator<PacienteDeleteRequestD
     {
         RuleFor(x => x.Id)
             .NotEmpty();
-            
+
     }
 }

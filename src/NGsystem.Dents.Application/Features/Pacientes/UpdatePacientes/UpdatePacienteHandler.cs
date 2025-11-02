@@ -1,26 +1,25 @@
 ﻿using FluentValidation;
 using NGsystem.Dents.Application.Common;
-using NGsystem.Dents.Application.Features.UpdatePacientes;
+using NGsystem.Dents.Application.Features.Pacientes.UpdatePacientes;
 using NGsystem.Dents.Application.QueryServices;
 using NGsystem.Dents.Core;
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.DeletePaciente;
+namespace NGsystem.Dents.Application.Features.Pacientes.UpdatePacientes;
 
-
-public class DeletePacienteHandler
+public class UpdatePacienteHandler
 {
-    private readonly IValidator<PacienteDeleteRequestDto> _validator;
+    private readonly IValidator<PacienteUpdateRequestDto> _validator;
     private readonly IPacienteRepository _pacienteRepository;
     private readonly IPacienteReadService _pacienteReadService;
-    public DeletePacienteHandler(IValidator<PacienteDeleteRequestDto> validator, IPacienteRepository pacienteRepository, IPacienteReadService pacienteReadService)
+    public UpdatePacienteHandler(IValidator<PacienteUpdateRequestDto> validator, IPacienteRepository pacienteRepository, IPacienteReadService pacienteReadService)
     {
         _validator = validator;
         _pacienteRepository = pacienteRepository;
         _pacienteReadService = pacienteReadService;
     }
 
-    public async Task<Result<PacienteDeleteResponseDTO>> Handle(PacienteDeleteRequestDto request)
+    public async Task<Result<PacienteUpdateResponseDTO>> Handle(PacienteUpdateRequestDto request)
     {
         // Validación asíncrona
         var validationResult = await _validator.ValidateAsync(request);
@@ -28,22 +27,22 @@ public class DeletePacienteHandler
         {
             var validationErrors = validationResult.Errors
                 .Select(err => new CustomError(string.Empty, err.ErrorMessage, "Validación")).ToList();
-            return Result<PacienteDeleteResponseDTO>.Failure(null, validationErrors);
+            return Result<PacienteUpdateResponseDTO>.Failure(null, validationErrors);
         }
 
         // Buscar paciente
-        var paciente = await _pacienteReadService.GetIdPacienteDtoAsync(request.Id);
+        var paciente = await _pacienteReadService.GetPacienteDtoAsync(request.Dni);
         if (paciente == null)
         {
-            return Result<PacienteDeleteResponseDTO>.Failure(new CustomError("Paciente", "No encontrado", "Negocio"), null);
+            return Result<PacienteUpdateResponseDTO>.Failure(new CustomError("Paciente", "No encontrado", "Negocio"), null);
         }
         // Actualizar propiedades
-        paciente.MapToDeletePaciente(request);
+        paciente.MapToUpdatePaciente(request);
         // Guardar cambios
-        this._pacienteRepository.UpdatePaciente(paciente);
+        _pacienteRepository.UpdatePaciente(paciente);
         await _pacienteRepository.UnitOfWork.SaveAsync();
         // Mapear y responder
-        var response = paciente.MapToDeletePacienteResponse();
-        return Result<PacienteDeleteResponseDTO>.Success(response);
+        var response = paciente.MapToUpdatePacienteResponse();
+        return Result<PacienteUpdateResponseDTO>.Success(response);
     }
 }

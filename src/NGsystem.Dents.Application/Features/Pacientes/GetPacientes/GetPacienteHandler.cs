@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
 using NGsystem.Dents.Application.Common;
+using NGsystem.Dents.Application.Features.Pacientes.ListPacientes;
 using NGsystem.Dents.Application.QueryServices;
 using NGsystem.Dents.Core;
 
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.ListPacientes;
+namespace NGsystem.Dents.Application.Features.Pacientes.GetPacientes;
 
 public class GetPacienteHandler
 {
@@ -25,14 +26,14 @@ public class GetPacienteHandler
         var validationResult = _validator.Validate(request);
         if (!validationResult.IsValid)
         {
-            var validationErrors = validationResult.Errors.Select(codeItem => new CustomError(string.Empty, codeItem.ErrorMessage,"Validacion"));
-            
-            return Result<PacienteResponseDto>.Failure(null,validationErrors);
+            var validationErrors = validationResult.Errors.Select(codeItem => new CustomError(string.Empty, codeItem.ErrorMessage, "Validacion"));
+
+            return Result<PacienteResponseDto>.Failure(null, validationErrors);
         }
 
         var response = await _pacienteService.GetPacienteDtoAsync(request.dni);
 
         return Result<PacienteResponseDto>.Success(response.MapToPacienteItem());
-        
+
     }
 }

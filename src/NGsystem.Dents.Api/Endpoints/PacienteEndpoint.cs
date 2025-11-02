@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NGsystem.Dents.Application.Features.CreatePaciente;
-using NGsystem.Dents.Application.Features.DeletePaciente;
-using NGsystem.Dents.Application.Features.ListPacientes;
-using NGsystem.Dents.Application.Features.UpdatePacientes;
+using NGsystem.Dents.Application.Features.Pacientes.CreatePaciente;
+using NGsystem.Dents.Application.Features.Pacientes.DeletePaciente;
+using NGsystem.Dents.Application.Features.Pacientes.GetPacientes;
+using NGsystem.Dents.Application.Features.Pacientes.ListPacientes;
+using NGsystem.Dents.Application.Features.Pacientes.UpdatePacientes;
 using NGsystem.Dents.Domain.Common;
-using System.Collections.Generic;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NGsystem.Dents.Api.Endpoints;
 

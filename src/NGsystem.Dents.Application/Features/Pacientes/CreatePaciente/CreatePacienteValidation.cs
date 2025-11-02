@@ -1,13 +1,9 @@
-﻿
-using FluentValidation;
-using NGsystem.Dents.Application.Features.CreatePaciente;
+﻿using FluentValidation;
 
-namespace NGsystem.Dents.Application.Features.UpdatePacientes;
-
-
-public class UpdatePacienteValidation : AbstractValidator<PacienteUpdateRequestDto>
+namespace NGsystem.Dents.Application.Features.Pacientes.CreatePaciente;
+public class CreatePacienteValidation : AbstractValidator<PacienteCreateRequestDto>
 {
-    public UpdatePacienteValidation()
+    public CreatePacienteValidation()
     {
         RuleFor(p => p.Nombre)
             .NotEmpty().WithMessage("El nombre es obligatorio.")

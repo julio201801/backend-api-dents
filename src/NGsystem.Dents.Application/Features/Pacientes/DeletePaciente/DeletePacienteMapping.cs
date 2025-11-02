@@ -1,8 +1,7 @@
-﻿
-using NGsystem.Dents.Application.Features.UpdatePacientes;
+﻿using NGsystem.Dents.Application.Features.Pacientes.UpdatePacientes;
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.DeletePaciente;
+namespace NGsystem.Dents.Application.Features.Pacientes.DeletePaciente;
 
 public static class DeletePacienteMapping
 {

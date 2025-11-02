@@ -5,23 +5,23 @@ using NGsystem.Dents.Core;
 
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.ListPacientes;
+namespace NGsystem.Dents.Application.Features.Pacientes.ListPacientes;
 
 public class ListPacienteHandler
 {
     private readonly IPacienteReadService _pacienteService;
-    public ListPacienteHandler( IPacienteReadService pacienteService)
+    public ListPacienteHandler(IPacienteReadService pacienteService)
     {
         _pacienteService = pacienteService;
     }
     public async Task<Result<IEnumerable<LisPacienteResponseDto>>> Handle()
     {
         //validación de aplicación
-       
+
 
         var response = await _pacienteService.ListPacienteDtoAsync();
 
         return Result<IEnumerable<LisPacienteResponseDto>>.Success(response);
-        
+
     }
 }

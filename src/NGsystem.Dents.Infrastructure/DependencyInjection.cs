@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using NGsystem.Dents.Application.QueryServices;
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
+using NGsystem.Dents.Domain.Aggregates.UsuarioAggregates;
 using NGsystem.Dents.Infrastructure.Persistence.Repositories;
+using NGsystem.Dents.Infrastructure.Seguridad;
 
 namespace NGsystem.Dents.Infrastructure;
 
@@ -16,7 +18,9 @@ public static class DependencyInjection
              );
         services.AddScoped<IPacienteReadService, PacienteRepository>();
         services.AddScoped<IPacienteRepository, PacienteRepository>();
-        
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+        services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<IAuthReadRepository, AuthRepository>();
         return services;
     }
 }

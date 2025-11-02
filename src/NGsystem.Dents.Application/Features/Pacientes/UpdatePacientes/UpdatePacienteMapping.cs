@@ -1,7 +1,7 @@
-﻿using NGsystem.Dents.Application.Features.CreatePaciente;
+﻿using NGsystem.Dents.Application.Features.Pacientes.CreatePaciente;
 using NGsystem.Dents.Domain.Aggregates.PacienteAggregates;
 
-namespace NGsystem.Dents.Application.Features.UpdatePacientes;
+namespace NGsystem.Dents.Application.Features.Pacientes.UpdatePacientes;
 public static class UpdatePacienteMapping
 {
     public static void MapToUpdatePaciente(this Paciente paciente, PacienteUpdateRequestDto request)
@@ -19,5 +19,5 @@ public static class UpdatePacienteMapping
     {
         return new PacienteUpdateResponseDTO(paciente.Dni, "Se actualizo correctamente");
     }
-  
+
 }

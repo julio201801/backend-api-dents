@@ -1,4 +1,4 @@
-﻿namespace NGsystem.Dents.Application.Features.DeletePaciente;
+﻿namespace NGsystem.Dents.Application.Features.Pacientes.DeletePaciente;
 
 public record PacienteDeleteRequestDto(
      int Id,

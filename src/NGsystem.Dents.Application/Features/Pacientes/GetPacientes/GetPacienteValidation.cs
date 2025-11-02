@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace NGsystem.Dents.Application.Features.ListPacientes;
+namespace NGsystem.Dents.Application.Features.Pacientes.GetPacientes;
 public class GetPacienteValidation : AbstractValidator<PacienteRequestDto>
 {
     public GetPacienteValidation()
